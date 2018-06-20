@@ -1,0 +1,82 @@
+2018-06-15 11:35:53,579  - INFO - _____ROKTest___清除完成
+2018-06-15 11:35:53,579  - INFO - _____ROKTest_begin____
+2018-06-15 11:39:21,141  - INFO - _____KOHTest___清除完成
+2018-06-15 11:39:21,142  - INFO - _____KOHTest_begin____
+2018-06-15 11:39:33,874  - INFO - _____启动应用中，请稍后_____
+2018-06-15 11:40:10,641  - ERROR - <em style="color:red">l_activate为空</em>
+2018-06-15 11:40:10,641  - INFO - l_activate校验完成
+2018-06-15 11:40:10,710  - ERROR - <em style="color:red">l_activate_date为空</em>
+2018-06-15 11:40:10,710  - INFO - l_activate_date校验完成
+2018-06-15 11:40:10,763  - ERROR - <em style="color:red">l_launch为空</em>
+2018-06-15 11:40:10,763  - INFO - l_launch校验完成
+2018-06-15 11:40:10,815  - ERROR - <em style="color:red">l_channel_device为空</em>
+2018-06-15 11:40:10,815  - INFO - l_channel_device校验完成
+2018-06-15 11:40:10,868  - ERROR - <em style="color:red">l_login为空</em>
+2018-06-15 11:40:10,868  - INFO - l_login校验完成
+2018-06-15 11:40:10,957  - ERROR - <em style="color:red">l_login_date为空</em>
+2018-06-15 11:40:10,957  - INFO - l_login_date校验完成
+2018-06-15 11:40:11,012  - ERROR - <em style="color:red">l_login_device为空</em>
+2018-06-15 11:40:11,012  - INFO - l_login_device校验完成
+2018-06-15 11:40:11,069  - ERROR - <em style="color:red">l_user_device为空</em>
+2018-06-15 11:40:11,069  - INFO - l_user_device校验完成
+2018-06-15 11:40:11,138  - ERROR - <em style="color:red">l_online为空</em>
+2018-06-15 11:40:11,138  - INFO - l_online校验完成
+2018-06-15 11:40:11,191  - ERROR - <em style="color:red">l_online_device为空</em>
+2018-06-15 11:40:11,191  - INFO - l_online_device校验完成
+2018-06-15 11:40:11,476  - ERROR - <em style="color:red">ua 校验失败
+2018-06-15 11:41:51,545  - INFO - _____ROSTest___清除完成
+2018-06-15 11:41:51,545  - INFO - _____ROSTest_begin____
+2018-06-15 11:42:05,134  - INFO - _____启动应用中，请稍后_____
+2018-06-15 11:42:41,566  - ERROR - <em style="color:red">l_activate为空</em>
+2018-06-15 11:42:41,568  - INFO - l_activate校验完成
+2018-06-15 11:42:41,625  - ERROR - <em style="color:red">l_activate_date为空</em>
+2018-06-15 11:42:41,625  - INFO - l_activate_date校验完成
+2018-06-15 11:42:41,677  - ERROR - <em style="color:red">l_launch为空</em>
+2018-06-15 11:42:41,677  - INFO - l_launch校验完成
+2018-06-15 11:42:41,727  - ERROR - <em style="color:red">l_channel_device为空</em>
+2018-06-15 11:42:41,727  - INFO - l_channel_device校验完成
+2018-06-15 11:42:41,779  - ERROR - <em style="color:red">l_login为空</em>
+2018-06-15 11:42:41,779  - INFO - l_login校验完成
+2018-06-15 11:42:41,846  - ERROR - <em style="color:red">l_login_date为空</em>
+2018-06-15 11:42:41,846  - INFO - l_login_date校验完成
+2018-06-15 11:42:41,898  - ERROR - <em style="color:red">l_login_device为空</em>
+2018-06-15 11:42:41,898  - INFO - l_login_device校验完成
+2018-06-15 11:42:41,950  - ERROR - <em style="color:red">l_user_device为空</em>
+2018-06-15 11:42:41,950  - INFO - l_user_device校验完成
+2018-06-15 11:42:42,013  - ERROR - <em style="color:red">l_online为空</em>
+2018-06-15 11:42:42,013  - INFO - l_online校验完成
+2018-06-15 11:42:42,065  - ERROR - <em style="color:red">l_online_device为空</em>
+2018-06-15 11:42:42,065  - INFO - l_online_device校验完成
+2018-06-15 11:42:42,355  - ERROR - <em style="color:red">ua 校验失败
+2018-06-15 11:46:11,834  - INFO - _____KOHTest___清除完成
+2018-06-15 11:46:11,835  - INFO - _____KOHTest_begin____
+2018-06-15 11:46:26,908  - INFO - _____启动应用中，请稍后_____
+2018-06-15 11:47:03,437  - INFO - l_activate校验完成
+2018-06-15 11:47:03,519  - INFO - l_activate_date校验完成
+2018-06-15 11:47:03,592  - INFO - l_launch校验完成
+2018-06-15 11:47:03,651  - INFO - l_channel_device校验完成
+2018-06-15 11:47:03,713  - INFO - l_login校验完成
+2018-06-15 11:47:03,823  - INFO - l_login_date校验完成
+2018-06-15 11:47:03,890  - INFO - l_login_device校验完成
+2018-06-15 11:47:03,951  - INFO - l_user_device校验完成
+2018-06-15 11:47:04,026  - ERROR - <em style="color:red">l_online为空</em>
+2018-06-15 11:47:04,026  - INFO - l_online校验完成
+2018-06-15 11:47:04,085  - ERROR - <em style="color:red">l_online_device为空</em>
+2018-06-15 11:47:04,086  - INFO - l_online_device校验完成
+2018-06-15 11:47:04,407  - INFO - ua 校验通过
+2018-06-15 11:48:00,829  - INFO - _____ROSTest___清除完成
+2018-06-15 11:48:00,829  - INFO - _____ROSTest_begin____
+2018-06-15 11:48:14,434  - INFO - _____启动应用中，请稍后_____
+2018-06-15 11:48:50,790  - INFO - l_activate校验完成
+2018-06-15 11:48:50,851  - INFO - l_activate_date校验完成
+2018-06-15 11:48:50,905  - INFO - l_launch校验完成
+2018-06-15 11:48:50,957  - INFO - l_channel_device校验完成
+2018-06-15 11:48:51,019  - INFO - l_login校验完成
+2018-06-15 11:48:51,085  - INFO - l_login_date校验完成
+2018-06-15 11:48:51,135  - INFO - l_login_device校验完成
+2018-06-15 11:48:51,191  - INFO - l_user_device校验完成
+2018-06-15 11:48:51,252  - INFO - l_online校验完成
+2018-06-15 11:48:51,302  - INFO - l_online_device校验完成
+2018-06-15 11:48:51,608  - INFO - ua 校验通过
+2018-06-15 11:52:56,380  - INFO - _____ROKTest___清除完成
+2018-06-15 11:52:56,381  - INFO - _____ROKTest_begin____

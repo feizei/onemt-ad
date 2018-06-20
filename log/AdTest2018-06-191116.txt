@@ -1,0 +1,40 @@
+2018-06-19 11:16:49,687  - INFO - _____DKTest___清除完成
+2018-06-19 11:16:49,687  - INFO - _____DKTest_begin____
+2018-06-19 11:17:04,483  - INFO - _____启动应用中，请稍后_____
+2018-06-19 11:17:40,953  - ERROR - <em style="color:red">l_activate为空</em>
+2018-06-19 11:17:40,953  - INFO - l_activate校验完成
+2018-06-19 11:17:41,013  - ERROR - <em style="color:red">l_activate_date为空</em>
+2018-06-19 11:17:41,015  - INFO - l_activate_date校验完成
+2018-06-19 11:17:41,062  - ERROR - <em style="color:red">l_launch为空</em>
+2018-06-19 11:17:41,062  - INFO - l_launch校验完成
+2018-06-19 11:17:41,108  - ERROR - <em style="color:red">l_channel_device为空</em>
+2018-06-19 11:17:41,108  - INFO - l_channel_device校验完成
+2018-06-19 11:17:41,154  - ERROR - <em style="color:red">l_login为空</em>
+2018-06-19 11:17:41,155  - INFO - l_login校验完成
+2018-06-19 11:17:41,204  - ERROR - <em style="color:red">l_login_date为空</em>
+2018-06-19 11:17:41,206  - INFO - l_login_date校验完成
+2018-06-19 11:17:41,253  - ERROR - <em style="color:red">l_login_device为空</em>
+2018-06-19 11:17:41,253  - INFO - l_login_device校验完成
+2018-06-19 11:17:41,299  - ERROR - <em style="color:red">l_user_device为空</em>
+2018-06-19 11:17:41,301  - INFO - l_user_device校验完成
+2018-06-19 11:17:41,358  - ERROR - <em style="color:red">l_online为空</em>
+2018-06-19 11:17:41,359  - INFO - l_online校验完成
+2018-06-19 11:17:41,404  - ERROR - <em style="color:red">l_online_device为空</em>
+2018-06-19 11:17:41,404  - INFO - l_online_device校验完成
+2018-06-19 11:17:41,684  - ERROR - <em style="color:red">ua 校验失败
+2018-06-19 11:20:31,223  - INFO - _____ROSTest___清除完成
+2018-06-19 11:20:31,224  - INFO - _____ROSTest_begin____
+2018-06-19 11:20:42,835  - INFO - _____启动应用中，请稍后_____
+2018-06-19 11:21:23,638  - INFO - l_activate校验完成
+2018-06-19 11:21:24,749  - INFO - l_activate_date校验完成
+2018-06-19 11:21:25,648  - INFO - l_launch校验完成
+2018-06-19 11:21:26,453  - INFO - l_channel_device校验完成
+2018-06-19 11:21:27,263  - INFO - l_login校验完成
+2018-06-19 11:21:28,081  - INFO - l_login_date校验完成
+2018-06-19 11:21:28,940  - INFO - l_login_device校验完成
+2018-06-19 11:21:29,361  - INFO - l_user_device校验完成
+2018-06-19 11:21:29,971  - INFO - l_online校验完成
+2018-06-19 11:21:30,019  - INFO - l_online_device校验完成
+2018-06-19 11:21:30,315  - INFO - ua 校验通过
+2018-06-19 11:25:09,490  - INFO - _____ROSTest___清除完成
+2018-06-19 11:25:09,490  - INFO - _____ROSTest_begin____

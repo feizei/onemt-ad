@@ -1,0 +1,24 @@
+2018-06-19 10:10:55,456  - INFO - _____ROKTest___清除完成
+2018-06-19 10:10:55,456  - INFO - _____ROKTest_begin____
+2018-06-19 10:11:14,278  - INFO - _____启动应用中，请稍后_____
+2018-06-19 10:11:52,099  - ERROR - <em style="color:red">l_activate为空</em>
+2018-06-19 10:11:52,099  - INFO - l_activate校验完成
+2018-06-19 10:11:52,163  - ERROR - <em style="color:red">l_activate_date为空</em>
+2018-06-19 10:11:52,163  - INFO - l_activate_date校验完成
+2018-06-19 10:11:52,213  - ERROR - <em style="color:red">l_launch为空</em>
+2018-06-19 10:11:52,213  - INFO - l_launch校验完成
+2018-06-19 10:11:52,272  - ERROR - <em style="color:red">l_channel_device为空</em>
+2018-06-19 10:11:52,272  - INFO - l_channel_device校验完成
+2018-06-19 10:11:52,319  - ERROR - <em style="color:red">l_login为空</em>
+2018-06-19 10:11:52,335  - INFO - l_login校验完成
+2018-06-19 10:11:52,407  - ERROR - <em style="color:red">l_login_date为空</em>
+2018-06-19 10:11:52,407  - INFO - l_login_date校验完成
+2018-06-19 10:11:52,453  - ERROR - <em style="color:red">l_login_device为空</em>
+2018-06-19 10:11:52,453  - INFO - l_login_device校验完成
+2018-06-19 10:11:52,500  - ERROR - <em style="color:red">l_user_device为空</em>
+2018-06-19 10:11:52,500  - INFO - l_user_device校验完成
+2018-06-19 10:11:52,559  - ERROR - <em style="color:red">l_online为空</em>
+2018-06-19 10:11:52,559  - INFO - l_online校验完成
+2018-06-19 10:11:52,607  - ERROR - <em style="color:red">l_online_device为空</em>
+2018-06-19 10:11:52,607  - INFO - l_online_device校验完成
+2018-06-19 10:11:52,880  - ERROR - <em style="color:red">ua 校验失败

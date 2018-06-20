@@ -1,0 +1,16 @@
+2018-06-19 09:57:47,155  - INFO - _____DKTest___清除完成
+2018-06-19 09:57:47,157  - INFO - _____DKTest_begin____
+2018-06-19 09:58:01,914  - INFO - _____启动应用中，请稍后_____
+2018-06-19 09:58:40,857  - INFO - l_activate校验完成
+2018-06-19 09:58:40,921  - INFO - l_activate_date校验完成
+2018-06-19 09:58:40,971  - INFO - l_launch校验完成
+2018-06-19 09:58:41,020  - INFO - l_channel_device校验完成
+2018-06-19 09:58:41,075  - INFO - l_login校验完成
+2018-06-19 09:58:41,128  - INFO - l_login_date校验完成
+2018-06-19 09:58:41,181  - INFO - l_login_device校验完成
+2018-06-19 09:58:41,233  - INFO - l_user_device校验完成
+2018-06-19 09:58:41,289  - ERROR - <em style="color:red">l_online为空</em>
+2018-06-19 09:58:41,290  - INFO - l_online校验完成
+2018-06-19 09:58:41,339  - ERROR - <em style="color:red">l_online_device为空</em>
+2018-06-19 09:58:41,341  - INFO - l_online_device校验完成
+2018-06-19 09:58:41,628  - INFO - ua 校验通过

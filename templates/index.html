@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<!-- BASICS -->
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>云图测试</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="/static/css/isotope.css" media="screen" />
+	<link rel="stylesheet" href="/static/js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/bootstrap-theme.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<!-- skin -->
+	<link rel="stylesheet" href="/static/skin/default.css">
+	<link href="/static/css/toastr.min.css" rel="stylesheet" />
+    <style type="text/css">
+
+    .help-tip{
+
+	text-align: center;
+	background-color: #BCDBEA;
+	border-radius: 50%;
+	width: 16px;
+	height: 16px;
+	font-size: 14px;
+	line-height: 16px;
+	cursor: default;
+    padding-bottom:5px;
+    }
+
+    .help-tip:before{
+	content:'?';
+	font-weight: bold;
+	color:#746666;
+    font-size: 12px;
+
+    }
+
+    .help-tip:hover p{
+	display:block;
+	transform-origin: 100% 0%;
+
+	-webkit-animation: fadeIn 0.3s ease-in-out;
+	animation: fadeIn 0.3s ease-in-out;
+
+    }
+
+    .help-tip p{
+	display: none;
+	text-align: left;
+	background-color: #3b7491;
+	padding: 20px;
+	width: 300px;
+	position: absolute;
+	border-radius: 3px;
+	box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+	color: #fff;
+	font-size: 13px;
+	line-height: 1.4;
+    }
+
+    .help-tip p:before{
+	position: absolute;
+	content: '';
+	width:0;
+	height: 0;
+	border:6px solid transparent;
+	border-bottom-color:#1E2021;
+	left:10px;
+	top:-12px;
+    }
+
+    .help-tip p:after{
+	width:100%;
+	height:40px;
+	content:'';
+	position: absolute;
+	top:-40px;
+	left:0;
+    }
+    </style>
+
+
+	<script type = "text/javascript" src = "/static/js/jquery.min.js"></script>
+	<script src="/static/js/toastr.min.js"></script>
+	<script type="text/javascript">
+		toastr.options.positionClass = 'toast-bottom-center';
+		$(function(){
+			$("#submit").click (function (){
+            //非空判断
+
+
+            var val = $ ("#app_key").val();
+            var val2 = $("#proctime").val();
+            var val3 = $("#datanum").val();
+            var val4 = $("#env").val();
+            var val5 = $("#checkbox1") .val()  ;
+
+
+
+
+
+            if (val == ''||$.trim(val) == '') {
+                    //如果val为空或者空格，显示错误信息
+                    toastr.info('app_key不能为空');
+                    ///$("#errorMsg").html('不能为空');
+                    /// $("#errorMsg").show();
+                }else if(val2 ==''||$.trim(val2) == '') {
+                	toastr.info('日期不能为空');
+
+                }
+                else if(val3 ==''||$.trim(val2) == '') {
+                	toastr.info('数量不能为空');
+
+                }
+
+                else
+                {
+                	$("#spinner").show();
+
+                	$.post("/QA/", $("#taskform").serialize())
+                	.success(function()
+                		{ $("#spinner").hide();
+                		toastr.success('脚本执行完成');})
+                	.error(function()
+                		{ $("#spinner").hide();
+                		toastr.error('脚本执行失败'); }
+                		);
+                }
+
+
+            });
+		})
+
+
+
+
+	</script>
+</head>
+
+<body>
+	<section id="header" class="appear"></section>
+	 <div class="navbar navbar-fixed-top skrollable skrollable-between" role="navigation" data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);" data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);" style="line-height: 100px; height: 100px; background-color: rgba(0, 0, 0, 0.3);">
+			 <div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="fa fa-bars color-white"></span>
+					</button>
+					<div  class="myicon">
+				<img src="/static/cloud-atlas-v10.png">
+            </div>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav skrollable skrollable-between" data-0="margin-top:20px;" data-300="margin-top:5px;" style="margin-top: 20px;">
+
+						<li><a href="/home">HOME</a></li>
+						<li><a href="/logout">登出</a></li>
+
+					</ul>
+				</div><!--/.navbar-collapse -->
+			</div>
+		</div>
+
+		<section class="featured">
+			<div class="container">
+				<div class="row mar-bot40">
+					<div class="col-md-6 col-md-offset-3">
+
+						<div class="align-center">
+							<div id="header-navbar" >
+
+								<div >
+									<section class="overflow-hidden">
+										<div class="push-100-t push-50 =">
+											<h1 data-toggle="appear" data-class="animated fadeInDown" class="h1 text-white push-10 animated fadeInDown">数据生成工具</h1>
+											<h2 data-toggle="appear" data-class="animated fadeInDown" class="h1 text-white-10 push-10 animated fadeInDown">请在下方输入应用名称及时间</h2>
+										</div>
+									</section>
+								</div>
+							</div>
+							<p>
+								基础数据生成后在数据库中对应日期表里，请配合清洗工具使用
+
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+
+
+
+		<section id="section-contact" class="section appear clearfix">
+			<div class="container">
+
+				<div class="row mar-bot40">
+					<div class="col-md-offset-3 col-md-6">
+						<div class="section-header">
+							<h2 class="section-heading animated" data-animation="bounceInUp"></h2>
+
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="cform" id="c-form">
+
+							<form   id ="taskform" role="form" class="contactForm">
+								<div class="form-group">
+									<label for="env">环境</label>
+									<select id ="env" name="env" style="margin-top: 15px!important;margin-bottom: 15px!important; background: rgba(227, 231, 228, 1)" class="form-control">
+										<option value="http://cloud-atlas-collection.pre1.web.nd">集成环境</option>
+										<option value="https://cloud-atlas-collection.beta.101.com">预生产环境(暂不支持导入mysql)</option>
+								        <option value="https://cloud-atlas-collection.sdp.101.com">生产环境</option>-->
+
+									</select>
+
+								</div>
+
+
+								<div class="form-group">
+									<label for="app_key">App_key</label>
+									<input id ="app_key" type="text" name="app_key" class="form-control"  placeholder="请输入app_key"  />
+									<div class="validation"></div>
+								</div>
+								<div class="form-group">
+									<label for="proctime">日期</label>
+									<input type="text" class="form-control" name="proctime" id="proctime" placeholder="请输入日期如20170925"  />
+									<div class="validation"></div>
+								</div>
+								<div class="form-group">
+									<label for="datanum">数量</label>
+									<input type="text" class="form-control" name="datanum" id="datanum" placeholder="请输入数量"  />
+									<div class="validation"></div>
+								</div>
+                                <div class="form-group">
+									<label for="checkbox1">强清理模式</label>
+                                    <label class="help-tip">
+		                                <p>该模式下将清理同一时刻内的历史脏数据</p>
+	                                </label>
+									  &nbsp; <input type="checkbox" name="checkbox1" id="checkbox1"   />
+                                    <br/>
+
+                                    <label for="checkbox2">导入mysql</label>
+                                    <label class="help-tip">
+		                                <p>勾选后将本时刻内的数据导入对应mysql日期表</p>
+	                                </label>
+									 &nbsp; <input type="checkbox" name="checkbox2" id="checkbox2"  checked="checked"  />
+
+								</div>
+
+
+
+
+								<button type="submit" id ="submit"  class="btn btn-theme pull-left">开始任务</button>
+							</form>
+
+						</div>
+					</div>
+
+				</div>
+				<div>
+					<table  style ="margin-top: 100px" class ="table table-bordered"   align ="center"	border="0">
+						<thead>
+							<th>App_key</th>
+							<th>目标日期</th>
+							<th>数量</th>
+							<th>环境</th>
+							<th>执行时间</th>
+
+						</thead>
+						<tbody>
+							{% for TestList in App_key %}
+							<tr>
+								<td>{{ TestList.app_key }}</td>
+								<td>{{ TestList.proctime }}</td>
+								<td>{{ TestList.datanum }}</td>
+								<td>{{ TestList.env }}</td>
+								<td>{{ TestList.nowtime }}</td>
+
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+				</div>
+
+			</div>
+		</section>
+		<div id ="spinner" style="position:absolute;left:50%; top:60%; z-index:2000; margin-left: -25px;margin-top:-30px ;display: none;" class="spinner">
+			<p style="font:inherit">执行中...</p>
+			<div class="rect1"></div>
+			<div class="rect2"></div>
+			<div class="rect3"></div>
+			<div class="rect4"></div>
+			<div class="rect5"></div>
+		</div>
+
+
+
+		<a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+
+		<script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+		<script src="/static/js/jquery.js"></script>
+		<script src="/static/js/jquery.easing.1.3.js"></script>
+		<script src="/static/js/bootstrap.min.js"></script>
+
+		<script src="/static/js/jquery.isotope.min.js"></script>
+		<script src="/static/js/jquery.nicescroll.min.js"></script>
+		<script src="/static/js/fancybox/jquery.fancybox.pack.js"></script>
+		<script src="/static/js/skrollr.min.js"></script>
+		<script src="/static/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+		<script src="/static/js/jquery.localscroll-1.2.7-min.js"></script>
+		<script src="/static/js/stellar.js"></script>
+		<script src="/static/js/jquery.appear.js"></script>
+		<script src="/static/js/validate.js"></script>
+		<script src="/static/js/main.js"></script>
+
+	</body>
+	</html>

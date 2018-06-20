@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <!-- BASICS -->
+    <link rel="icon" href="/static/favicon.ico" type="image/x-icon"/>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>广告上报</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/isotope.css" media="screen"/>
+    <link rel="stylesheet" href="/static/js/fancybox/jquery.fancybox.css" type="text/css" media="screen"/>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    {#    <link rel="stylesheet" href="/static/css/bootstrap.css">#}
+    <link rel="stylesheet" href="/static/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- skin -->
+    <link rel="stylesheet" href="/static/skin/default.css">
+    <link href="/static/css/toastr.min.css" rel="stylesheet"/>
+    <style type="text/css">
+
+        .help-tip {
+
+            text-align: center;
+            background-color: #BCDBEA;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            font-size: 14px;
+            line-height: 16px;
+            cursor: default;
+            padding-bottom: 5px;
+        }
+
+        .help-tip:before {
+            content: '?';
+            font-weight: bold;
+            color: #746666;
+            font-size: 12px;
+
+        }
+
+        .help-tip:hover p {
+            display: block;
+            transform-origin: 100% 0%;
+
+            -webkit-animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.3s ease-in-out;
+
+        }
+
+        .help-tip p {
+            display: none;
+            text-align: left;
+            background-color: #3b7491;
+            padding: 20px;
+            width: 300px;
+            position: absolute;
+            border-radius: 3px;
+            box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .help-tip p:before {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            border: 6px solid transparent;
+            border-bottom-color: #1E2021;
+            left: 10px;
+            top: -12px;
+        }
+
+        .help-tip p:after {
+            width: 100%;
+            height: 40px;
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+        }
+
+        .button, .button:visited {
+            background: white;
+            display: inline-block;
+            padding: 5px 10px 6px;
+            color: black;
+            text-decoration: none;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            position: relative;
+            cursor: pointer;
+            transition-duration: 0.4s;
+
+        }
+
+        .button:active {
+
+            background-color: #4CAF50; /* Green */
+            color: white;
+
+            box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .selected {
+            background: #79CDC0;
+            display: inline-block;
+            padding: 5px 10px 6px;
+            color: #fff;
+            text-decoration: none;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            position: relative;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+
+        .selected-check {
+            background: #79CDC0;
+            display: inline-block;
+            padding: 5px 10px 6px;
+            color: #fff;
+            text-decoration: none;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+            text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            position: relative;
+            cursor: pointer;
+            transition-duration: 0.4s;
+        }
+    </style>
+
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/toastr.min.js"></script>
+    <script type="text/javascript">
+        toastr.options.positionClass = 'toast-bottom-center';
+        $(function () {
+            $("#submit").click(function () {
+                //非空判断
+                var form_data = new FormData();
+                var file_info = $('#file_upload')[0].files[0];
+                if (file_info ==undefined){
+                    toastr.error('请先上传应用');
+                }
+
+                else{
+                    $("#spinner").show();
+                    $.post("/adtest/", $("#taskform").serialize())
+
+                        .success(function () {
+                            $("#spinner").hide();
+                            toastr.success('校验完成');
+                            window.location.reload();
+                        })
+                        .error(function () {
+                                $("#spinner").hide();
+                                toastr.error('校验失败');
+                            }
+                        );
+                }
+
+
+            });
+        })
+
+        $(function () {
+
+            $("#indexs li").click(function () {
+
+                $(this).siblings('li').removeClass('selected');
+                $(this).siblings('li').removeClass('selected-check');
+
+                $(this).addClass('selected');
+                $(this).addClass('selected');
+
+            });
+        });
+
+        $(function () {
+
+            $("#index2").click(function () {
+                var ss = document.getElementById('hidLI');
+                ss.value = '2'
+
+            });
+            $("#index1").click(function () {
+                var ss = document.getElementById('hidLI');
+                var test = document.getElementById('app_key');
+                ss.value = '1'
+                console.log(test.value)
+
+            });
+            $("#index3").click(function () {
+                var ss = document.getElementById('hidLI');
+                var test = document.getElementById('app_key');
+                ss.value = '3'
+                console.log(test.value)
+
+            });
+            $("#index4").click(function () {
+                var ss = document.getElementById('hidLI');
+                var test = document.getElementById('app_key');
+                ss.value = '4'
+                console.log(test.value)
+
+            });
+        });
+
+
+        function showapplist(Names) {
+            var env = document.getElementById('env')
+            var task_type = document.getElementById('task_type')
+            console.log(env.value)
+            console.log(task_type.value)
+
+
+            if (env.value == "cloud-atlas-server.pre1.web.nd" && task_type.value == '2') {
+
+                NList = document.getElementById("applist")
+                NList_2 = document.getElementById("applist_2")
+                NList.style.display = 'NONE';
+                NList_2.style.display = '';
+
+            } else if (env.value == "cloud-atlas-server.sdp.101.com" && task_type.value == '2') {
+                Nnews = document.getElementById("applist")
+                Nnews_2 = document.getElementById("applist_2")
+                Nnews.style.display = '';
+                Nnews_2.style.display = 'NONE';
+            }
+            else {
+                Nnews = document.getElementById("applist")
+                Nnews_2 = document.getElementById("applist_2")
+                Nnews.style.display = 'NONE';
+                Nnews_2.style.display = 'NONE';
+            }
+        }
+
+        $(function () {
+            var myDate = new Date();
+            var preDate = new Date(myDate.getTime() - 30 * 24 * 60 * 60 * 1000);
+            $('#date1').datetimepicker({
+                format: 'YYYY.MM.DD',
+                locale: moment.locale('zh-cn'),
+                defaultDate: preDate.toLocaleDateString(),
+
+            });
+        });
+        $(function () {
+            var myDate = new Date();
+            var preDate = new Date(myDate.getTime() - 2 * 24 * 60 * 60 * 1000);
+            $('#date2').datetimepicker({
+                format: 'YYYY.MM.DD',
+                locale: moment.locale('zh-cn'),
+                defaultDate: preDate.toLocaleDateString()
+            });
+        });
+
+        function FileUpload() {
+            var form_data = new FormData();
+            var file_info = $('#file_upload')[0].files[0];
+            form_data.append('file', file_info);
+            if(file_info==undefined)
+            toastr.info('你没有选择任何文件');
+            else {
+            $.ajax({
+                url: '/upload/',
+                type: 'POST',
+                data: form_data,
+                processData: false,
+                contentType: false,
+                success: function (callback) {
+                    toastr.info('上传成功');
+                    console.log('ok')
+                }
+            });
+            }
+        }
+    </script>
+</head>
+
+<body>
+<section id="header" class="appear"></section>
+<div class="navbar navbar-fixed-top skrollable skrollable-between" role="navigation"
+     data-0="line-height:100px; height:100px; background-color:rgba(0,0,0,0.3);"
+     data-300="line-height:60px; height:60px; background-color:rgba(0,0,0,1);"
+     style="line-height: 100px; height: 100px; background-color: rgba(0, 0, 0, 0.3);">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="fa fa-bars color-white"></span>
+            </button>
+            <div class="myicon">
+                <img src="/static/logo.png">
+            </div>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav skrollable skrollable-between" data-0="margin-top:20px;"
+                data-300="margin-top:5px;" style="margin-top: 20px;">
+
+                <li><a href="/home">HOME</a></li>
+                <li><a href="/logout">登出</a></li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section class="featured">
+    <div class="container">
+        <div class="row mar-bot40">
+            <div class="col-md-6 col-md-offset-3">
+
+                <div class="align-center">
+                    <div id="header-navbar">
+                        <div>
+                            <section class="overflow-hidden">
+                                <div class="push-100-t push-50 =">
+                                    <h1 data-toggle="appear" data-class="animated fadeInDown"
+                                        class="h1 text-white push-10 animated fadeInDown">AD数据校验</h1>
+{#                                    <h2 data-toggle="appear" style="font-size: 25px!important;"#}
+{#                                        data-class="animated fadeInDown"#}
+{#                                        class="h1 text-white-10 push-10 animated fadeInDown"></h2>#}
+                                    <h2 data-toggle="appear" style="font-size: 20px!important;" data-class="animated fadeInDown" class="h1 text-white-10 push-10 animated fadeInDown">请先上传应用再进行校验</h2>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="section-contact" class="section appear clearfix">
+    <div class="container">
+
+        <div class="row mar-bot40">
+            <div class="col-md-offset-3 col-md-6">
+                <div class="section-header">
+                    <h2 class="section-heading animated" data-animation="bounceInUp"></h2>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="cform" id="c-form">
+
+                    <form id="taskform" role="form" class="contactForm">
+                        <input type="hidden" value="1" id="hidLI" name="hidLI"/>
+                        <label for="indexs" style="margin-bottom: 20px;">请选择应用</label>
+                        <ul style="padding-left: 0px" id="indexs">
+                            <li id="index1" class="button selected-check " style="margin-bottom: 15px; " onclick="">
+                                ROK
+                            </li>
+                            <li id="index2" class="button " style="margin-bottom: 15px; " onclick="">DK</li>
+                            <li id="index3" class="button  " style="margin-bottom: 15px; " onclick="">
+                                kingdom
+                            </li>
+                            <li id="index4" class="button " style="margin-bottom: 15px; " onclick="">ROS</li>
+                        </ul>
+
+
+                        <input type="file" name="file" id="file_upload">
+                        <br/>
+                        <input type="button" style="font-family:Lato, sans-serif;" value="上传" onclick="FileUpload()">
+                        <br/>
+                        <button type="submit" id="submit" style="margin-top: 20px!important;"
+                                class="btn btn-theme pull-left">开始校验
+                        </button>
+                    </form>
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <div>
+					<table  style ="margin-top: 100px" class ="table table-bordered"   align ="center"	border="0">
+						<thead>
+                             {% autoescape off %}{% endautoescape %}
+							<th style="text-align: center">结果列表（最近5次）</th>
+						</thead>
+						<tbody>
+							{% for msg in msg %}
+							<tr>
+								<td><pre style="font-size: 15px;">{{ msg.result|safe}}</pre></td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+
+				</div>
+
+        <div>
+            <div>
+                <div id="dataShow" style="margin-top: 50px">
+                    <table class="table table-bordered" id="table" align="center" border="0">
+                        {% autoescape off %}{% endautoescape %}</table>
+                </div>
+                <br/>
+                <div id="page"></div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</section>
+<div id="spinner"
+     style="position:absolute;left:50%; top:60%; z-index:2000; margin-left: -25px;margin-top:-230px ; display:none  "
+     class="spinner">
+    <p style="font:inherit;font-size:10px">校验中...</p>
+    <div class="rect1"></div>
+    <div class="rect2"></div>
+    <div class="rect3"></div>
+    <div class="rect4"></div>
+    <div class="rect5"></div>
+</div>
+
+
+<a href="#header" class="scrollup"><i class="fa fa-chevron-up"></i></a>
+
+<script src="/static/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.easing.1.3.js"></script>
+<script src="/static/js/bootstrap.min.js"></script>
+<script src="/static/js/jquery.isotope.min.js"></script>
+<script src="/static/js/jquery.nicescroll.min.js"></script>
+<script src="/static/js/fancybox/jquery.fancybox.pack.js"></script>
+<script src="/static/js/skrollr.min.js"></script>
+<script src="/static/js/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script src="/static/js/jquery.localscroll-1.2.7-min.js"></script>
+<script src="/static/js/stellar.js"></script>
+<script src="/static/js/validate.js"></script>
+<script src="/static/js/jquery.appear.js"></script>
+<script src="/static/js/main.js"></script>
+
+
+<script src="https://cdn.bootcss.com/moment.js/2.18.1/moment-with-locales.min.js"></script>
+<link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css"
+      rel="stylesheet">
+<script src="/static/js/bootstrap-datetimepicker.min.js"></script>
+
+</body>
+</html>
